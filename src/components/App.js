@@ -19,28 +19,43 @@ export default class App extends Component {
   countPositiveFeedbackPercentage = () => {};
 
   render() {
-    const { good, neutral, bad } = this.state;
+    // const { good, neutral, bad } = this.state;
     return (
       <>
         <div className="feedback">
           <h1 className="title">Please leave feedback</h1>
-          <button className="btn" name="good" onClick={this.Increment}>
+          <button
+            className="btn"
+            name="good"
+            type="button"
+            onClick={this.Increment}
+          >
             Good
           </button>
-          <button className="btn" name="neutral" onClick={this.Increment}>
+          <button
+            className="btn"
+            name="neutral"
+            type="button"
+            onClick={this.Increment}
+          >
             Neutral
           </button>
-          <button className="btn" name="bad" onClick={this.Increment}>
+          <button
+            className="btn"
+            name="bad"
+            type="button"
+            onClick={this.Increment}
+          >
             Bad
           </button>
         </div>
         <div className="statistics">
           <h2 className="title">Statistics</h2>
-          <span>Good {good}</span>
-          <span>Neutral {neutral}</span>
-          <span>Bad {bad}</span>
-          <span>0</span>
-          <span>0</span>
+          <p>Good: {this.state.good}</p>
+          <p>Neutral: {this.state.neutral}</p>
+          <p>Bad: {this.state.bad}</p>
+          <p>0</p>
+          <p>0</p>
         </div>
       </>
     );
