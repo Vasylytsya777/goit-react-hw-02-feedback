@@ -8,25 +8,27 @@ export default class App extends Component {
   };
 
   Increment = (e) => {
-    const name = e.target.name;
+    const name = e.target.dataset.name;
     console.log(name);
-    this.setState((state) => ({
-      name: state[name] + 1,
+    this.setState((prevState) => ({
+      [name]: prevState[name] + 1,
     }));
   };
-  countTotalFeedback = () => {};
+  countTotalFeedback = () => {
+    return this.stategood + this.stateneutral + this.statebad;
+  };
 
   countPositiveFeedbackPercentage = () => {};
 
   render() {
-    // const { good, neutral, bad } = this.state;
+    const { good, neutral, bad, countTotalFeedback } = this.state;
     return (
       <>
         <div className="feedback">
           <h1 className="title">Please leave feedback</h1>
           <button
             className="btn"
-            name="good"
+            data-name="good"
             type="button"
             onClick={this.Increment}
           >
@@ -34,7 +36,7 @@ export default class App extends Component {
           </button>
           <button
             className="btn"
-            name="neutral"
+            data-name="neutral"
             type="button"
             onClick={this.Increment}
           >
@@ -42,7 +44,7 @@ export default class App extends Component {
           </button>
           <button
             className="btn"
-            name="bad"
+            data-name="bad"
             type="button"
             onClick={this.Increment}
           >
@@ -51,11 +53,11 @@ export default class App extends Component {
         </div>
         <div className="statistics">
           <h2 className="title">Statistics</h2>
-          <p>Good: {this.state.good}</p>
-          <p>Neutral: {this.state.neutral}</p>
-          <p>Bad: {this.state.bad}</p>
-          <p>0</p>
-          <p>0</p>
+          <p>Good: {good}</p>
+          <p>Neutral: {neutral}</p>
+          <p>Bad: {bad}</p>
+          <p>Total: {countTotalFeedback}</p>
+          <p>Percent: 0</p>
         </div>
       </>
     );
