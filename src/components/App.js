@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// import Wrapper from "./Styled";
-// import statistics from "./components/Statistics";
+
 import Section from "./section/Sections";
 import FeedbackOptions from "./feedbackOptions/FeedbackOptions";
 import Statistics from "./statistics/Statistics";
@@ -29,6 +28,8 @@ export default class App extends Component {
   };
 
   render() {
+    const total = this.countTotalFeedback();
+    const percent = this.countPositiveFeedbackPercentage();
     return (
       <>
         <Section title="Please leave feedback">
@@ -39,14 +40,14 @@ export default class App extends Component {
         </Section>
 
         <Section title="Statistics">
-          {this.countTotalFeedback() === 0 ? (
+          {this.countTotalFeedback() ? (
             <Statistics
               {...this.state}
               // good={this.good}
               // neutral={this.neutral}
               // bad={this.bad}
-              total={this.countTotalFeedback}
-              positivePercentage={this.countPositiveFeedbackPercentage}
+              total={total}
+              positivePercentage={percent}
             />
           ) : (
             <p>No feedback given</p>
