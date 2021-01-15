@@ -27,6 +27,11 @@ img {
   max-width: 100%;
   height: auto;
 }
-ul li .list {
+li {
   list-style: none;
+}
+button {
+  margin-right: 5px;
+  border-radius: 2px;
+  color: #000000;
 }

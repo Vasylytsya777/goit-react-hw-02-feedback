@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Container from "./AppStyled";
 import Section from "./section/Sections";
 import FeedbackOptions from "./feedbackOptions/FeedbackOptions";
 import Statistics from "./statistics/Statistics";
@@ -32,7 +32,7 @@ export default class App extends Component {
     const total = this.countTotalFeedback();
     const percent = this.countPositiveFeedbackPercentage();
     return (
-      <>
+      <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.state}
@@ -54,7 +54,7 @@ export default class App extends Component {
             />
           )}
         </Section>
-      </>
+      </Container>
     );
   }
 }

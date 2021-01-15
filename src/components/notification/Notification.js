@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import P from "./NotificationStyled";
 
 const Notification = ({ message }) => {
-  return <h2>{message}</h2>;
+  return <P>{message}</P>;
 };
 
 export default Notification;
