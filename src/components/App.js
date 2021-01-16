@@ -49,6 +49,8 @@ export default class App extends Component {
               // good={this.good}
               // neutral={this.neutral}
               // bad={this.bad}
+              // ось тут ми також можемо викликати метод total
+              // total={this.total()}
               total={total}
               positivePercentage={percent}
             />
